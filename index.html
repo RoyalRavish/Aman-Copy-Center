@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aman Copy Center – Notebook Manufacturer, Ludhiana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#0d1b2a;--gold:#e8a215;--gold-light:#f5c842;--cream:#faf6ef;--white:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#e0d8cc}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+    nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:64px;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+    .logo{display:flex;align-items:center;gap:.7rem;cursor:pointer}
+    .logo-icon{width:36px;height:36px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;color:var(--navy);font-family:'Playfair Display',serif}
+    .logo-text{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff}
+    .logo-text span{color:var(--gold)}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s;cursor:pointer}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-cta{background:var(--gold);color:var(--navy);padding:.5rem 1.3rem;border-radius:6px;font-weight:700;font-size:.85rem;cursor:pointer;border:none;transition:background .2s,transform .15s;font-family:'DM Sans',sans-serif}
+    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+    .hamburger span{width:22px;height:2px;background:#fff;border-radius:2px;display:block}
+    .page{display:none;min-height:100vh;padding-top:64px}
+    .page.active{display:block}
+    .hero{min-height:calc(100vh - 64px);background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 60%,#0d2740 100%);position:relative;overflow:hidden;display:flex;align-items:center}
+    .hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px)}
+    .hero-content{position:relative;z-index:2;padding:4rem 2.5rem 4rem 5rem;max-width:680px}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,162,21,.15);border:1px solid rgba(232,162,21,.4);color:var(--gold);padding:.4rem 1rem;border-radius:20px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .6s ease both}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.15;color:#fff;margin-bottom:1.5rem;animation:fadeUp .6s .1s ease both}
+    .hero h1 em{color:var(--gold);font-style:normal}
+    .hero p{color:rgba(255,255,255,.7);font-size:1rem;line-height:1.8;margin-bottom:2.5rem;max-width:500px;animation:fadeUp .6s .2s ease both}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+    .btn-primary{background:var(--gold);color:var(--navy);padding:.85rem 2rem;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;border:none;box-shadow:0 4px 20px rgba(232,162,21,.4);transition:all .2s;font-family:'DM Sans',sans-serif}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-outline{border:2px solid rgba(255,255,255,.35);color:#fff;padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;background:transparent;transition:all .2s;font-family:'DM Sans',sans-serif}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .hero-stats{position:absolute;bottom:3rem;right:5rem;display:flex;gap:2.5rem;animation:fadeUp .6s .4s ease both}
+    .stat{text-align:center}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--gold);line-height:1}
+    .stat-label{color:rgba(255,255,255,.5);font-size:.75rem;margin-top:.3rem;letter-spacing:.05em}
+    .hero-illus{position:absolute;right:4rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;opacity:.9}
+    .nb-row{display:flex;gap:6px}
+    .nb-block{width:30px;height:42px;border-radius:2px 6px 6px 2px;box-shadow:3px 3px 10px rgba(0,0,0,.3);position:relative}
+    .nb-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:rgba(0,0,0,.2);border-radius:2px 0 0 2px}
+    .section{padding:5rem}
+    .section-alt{background:#fff}
+    .section-tag{color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--navy);margin-bottom:1rem;line-height:1.25}
+    .section-sub{color:var(--muted);max-width:560px;line-height:1.75;font-size:.95rem}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem;margin-top:3rem}
+    .product-card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;border:1px solid var(--border)}
+    .product-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+    .product-thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+    .product-body{padding:1.2rem 1.4rem 1.5rem}
+    .product-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:.4rem}
+    .product-desc{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+    .product-price{display:flex;justify-content:space-between;align-items:center}
+    .price-retail{font-size:.8rem;color:var(--muted)}
+    .price-retail strong{color:var(--navy);font-size:.98rem}
+    .price-badge{background:#e8f5e9;color:#27ae60;padding:.25rem .7rem;border-radius:20px;font-size:.72rem;font-weight:700}
+    .w-banner{background:linear-gradient(135deg,var(--navy),#1a3a5c);border-radius:20px;padding:3.5rem;margin-top:3rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;position:relative;overflow:hidden}
+    .w-banner::before{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(232,162,21,.08)}
+    .w-banner h2{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:1rem}
+    .w-banner h2 span{color:var(--gold)}
+    .w-banner p{color:rgba(255,255,255,.65);line-height:1.75;max-width:480px}
+    .w-tiers{display:flex;flex-direction:column;gap:.75rem;min-width:210px}
+    .tier{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center}
+    .tier-label{color:rgba(255,255,255,.65);font-size:.8rem}
+    .tier-disc{color:var(--gold);font-weight:700;font-size:1rem}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:2rem;margin-top:3rem}
+    .feature-card{padding:1.8rem 1.5rem;border:1px solid var(--border);border-radius:16px;transition:border-color .2s,box-shadow .2s}
+    .feature-card:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(232,162,21,.1)}
+    .feature-icon{width:48px;height:48px;border-radius:12px;background:rgba(232,162,21,.1);border:1px solid rgba(232,162,21,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem}
+    .feature-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+    .feature-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+    .contact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start}
+    .contact-icon{width:42px;height:42px;border-radius:10px;background:rgba(232,162,21,.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .contact-item p{font-size:.84rem;color:var(--muted);line-height:1.6}
+    .contact-item strong{color:var(--navy);display:block;margin-bottom:.2rem}
+    .form-group{display:flex;flex-direction:column;gap:.4rem}
+    .form-group label{font-size:.8rem;font-weight:600;color:var(--navy)}
+    .form-group input,.form-group select,.form-group textarea{padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:.88rem;font-family:'DM Sans',sans-serif;color:var(--text);background:#fff;transition:border-color .2s;outline:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,162,21,.1)}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .form-stack{display:flex;flex-direction:column;gap:1rem}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+    .about-image{border-radius:20px;overflow:hidden;height:400px;background:linear-gradient(180deg,#1a3a5c 0%,#0d1b2a 100%);display:flex;align-items:flex-end;justify-content:center;padding:2rem;gap:8px}
+    .shelf-col{display:flex;flex-direction:column-reverse;gap:4px;align-items:center}
+    .shelf-nb{width:32px;border-radius:2px 5px 5px 2px;position:relative}
+    .shelf-nb::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:rgba(0,0,0,.2);border-radius:2px 0 0 2px}
+    .about-text h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--navy);margin-bottom:1.5rem}
+    .about-text p{color:var(--muted);line-height:1.8;margin-bottom:1.2rem;font-size:.95rem}
+    .about-highlights{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+    .highlight .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold)}
+    .highlight .lbl{font-size:.78rem;color:var(--muted)}
+    .login-page{min-height:calc(100vh - 64px);background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);display:flex;align-items:center;justify-content:center;padding:2rem}
+    .login-card{background:#fff;border-radius:20px;padding:2.5rem;width:100%;max-width:430px;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:fadeUp .5s ease}
+    .login-logo{text-align:center;margin-bottom:2rem}
+    .login-icon{width:54px;height:54px;background:var(--gold);border-radius:10px;margin:0 auto .75rem;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--navy)}
+    .login-logo h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy)}
+    .login-logo p{color:var(--muted);font-size:.83rem;margin-top:.2rem}
+    .login-tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--cream);border-radius:10px;padding:4px;margin-bottom:1.8rem;gap:4px}
+    .ltab{padding:.6rem;text-align:center;border-radius:7px;font-size:.86rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--muted);border:none;background:none;font-family:'DM Sans',sans-serif}
+    .ltab.active{background:#fff;color:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .divider{display:flex;align-items:center;gap:1rem;color:var(--muted);font-size:.78rem;margin:.25rem 0}
+    .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+    .login-footer{text-align:center;margin-top:1.2rem;font-size:.8rem;color:var(--muted)}
+    .login-footer a{color:var(--gold);text-decoration:none;font-weight:600}
+    .ws-table{width:100%;border-collapse:collapse}
+    .ws-table th{padding:1rem 1.5rem;text-align:left;font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;background:var(--cream)}
+    .ws-table td{padding:1.1rem 1.5rem;border-top:1px solid var(--border);font-size:.9rem}
+    footer{background:var(--navy);color:rgba(255,255,255,.6);padding:3rem 5rem 2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+    .footer-brand p{font-size:.83rem;line-height:1.75;margin-top:1rem;max-width:280px}
+    .footer-col h4{color:#fff;font-size:.85rem;font-weight:700;margin-bottom:1.2rem;letter-spacing:.05em}
+    .footer-col a{display:block;font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;margin-bottom:.6rem;transition:color .2s;cursor:pointer}
+    .footer-col a:hover{color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:.78rem}
+    .toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;background:var(--navy);color:#fff;padding:1rem 1.5rem;border-radius:10px;border-left:4px solid var(--gold);box-shadow:0 8px 30px rgba(0,0,0,.2);transform:translateY(100px);opacity:0;transition:all .3s ease;font-size:.86rem;pointer-events:none}
+    .toast.show{transform:translateY(0);opacity:1}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){.section{padding:3rem 1.5rem}.hero-content{padding:3rem 1.5rem}.hero-illus,.hero-stats{display:none}.contact-grid,.about-grid,.w-banner{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.nav-links,.nav-cta{display:none}.hamburger{display:flex}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="showPage('home')">
+    <div class="logo-icon">A</div>
+    <span class="logo-text">Aman <span>Copy Center</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('products')" id="nav-products">Products</a></li>
+    <li><a onclick="showPage('wholesale')" id="nav-wholesale">Wholesale</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="showPage('login')">Login / Register</button>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="mobileMenu" style="display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);z-index:998;padding:1.5rem;border-top:1px solid rgba(255,255,255,.08);">
+  <div style="display:flex;flex-direction:column;gap:1.1rem;">
+    <a style="color:#fff;font-size:1rem;cursor:pointer" onclick="showPage('home');toggleMenu()">Home</a>
+    <a style="color:#fff;font-size:1rem;cursor:pointer" onclick="showPage('products');toggleMenu()">Products</a>
+    <a style="color:#fff;font-size:1rem;cursor:pointer" onclick="showPage('wholesale');toggleMenu()">Wholesale</a>
+    <a style="color:#fff;font-size:1rem;cursor:pointer" onclick="showPage('about');toggleMenu()">About</a>
+    <a style="color:#fff;font-size:1rem;cursor:pointer" onclick="showPage('contact');toggleMenu()">Contact</a>
+    <a style="color:var(--gold);font-size:1rem;cursor:pointer;font-weight:600" onclick="showPage('login');toggleMenu()">Login / Register</a>
+  </div>
+</div>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">📍 Ludhiana, Punjab &middot; Factory Direct</div>
+      <h1>Punjab's Trusted<br/><em>Notebook Manufacturer</em><br/>&amp; Wholesale Supplier</h1>
+      <p>From school registers to premium diaries — manufactured in-house and available at wholesale rates. Trusted by schools, offices &amp; retailers across Punjab.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('products')">Browse Products</button>
+        <button class="btn-outline" onclick="showPage('wholesale')">Wholesale Enquiry</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years in Business</div></div>
+      <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Product Types</div></div>
+      <div class="stat"><div class="stat-num">50K+</div><div class="stat-label">Notebooks/Month</div></div>
+    </div>
+    <div class="hero-illus">
+      <div class="nb-row">
+        <div class="nb-block" style="background:linear-gradient(135deg,#3498db,#1a6b9a)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#27ae60,#1e8449)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#f39c12,#d68910)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#9b59b6,#7d3c98)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#1abc9c,#16a085)"></div>
+      </div>
+      <div class="nb-row">
+        <div class="nb-block" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#f39c12,#d68910)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#3498db,#1a6b9a)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#1abc9c,#16a085)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#27ae60,#1e8449)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"></div>
+      </div>
+      <div class="nb-row">
+        <div class="nb-block" style="background:linear-gradient(135deg,#9b59b6,#7d3c98)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#27ae60,#1e8449)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#f39c12,#d68910)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#3498db,#1a6b9a)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#9b59b6,#7d3c98)"></div>
+      </div>
+      <div class="nb-row">
+        <div class="nb-block" style="background:linear-gradient(135deg,#1abc9c,#16a085)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#3498db,#1a6b9a)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#9b59b6,#7d3c98)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#e74c3c,#c0392b)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#f39c12,#d68910)"></div>
+        <div class="nb-block" style="background:linear-gradient(135deg,#27ae60,#1e8449)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-tag">What We Make</div>
+    <h2 class="section-title">Notebooks for Every Need</h2>
+    <p class="section-sub">All products manufactured at our Ludhiana facility with quality paper and long-lasting binding.</p>
+    <div class="products-grid">
+      <div class="product-card" onclick="showPage('products')"><div class="product-thumb" style="background:linear-gradient(135deg,#dbeafe,#93c5fd)">&#x1F4D3;</div><div class="product-body"><div class="product-name">Registers</div><div class="product-desc">Long &amp; short registers, ruled &amp; unruled for school &amp; office.</div><div class="product-price"><div class="price-retail">From <strong>&#x20B9;25</strong></div><div class="price-badge">Bulk Savings</div></div></div></div>
+      <div class="product-card" onclick="showPage('products')"><div class="product-thumb" style="background:linear-gradient(135deg,#fce7f3,#f9a8d4)">&#x1F3A8;</div><div class="product-body"><div class="product-name">Drawing Books</div><div class="product-desc">A4 &amp; A3 with thick blank pages for art students.</div><div class="product-price"><div class="price-retail">From <strong>&#x20B9;30</strong></div><div class="price-badge">Bulk Savings</div></div></div></div>
+      <div class="product-card" onclick="showPage('products')"><div class="product-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">&#x1F4D2;</div><div class="product-body"><div class="product-name">Diaries</div><div class="product-desc">Dated &amp; undated diaries with elegant covers for gifting.</div><div class="product-price"><div class="price-retail">From <strong>&#x20B9;60</strong></div><div class="price-badge">Bulk Savings</div></div></div></div>
+      <div class="product-card" onclick="showPage('products')"><div class="product-thumb" style="background:linear-gradient(135deg,#fef3c7,#fcd34d)">&#x1F4CB;</div><div class="product-body"><div class="product-name">Assignment Sheets</div><div class="product-desc">Ruled &amp; graph assignment sheets for university students.</div><div class="product-price"><div class="price-retail">From <strong>&#x20B9;2</strong>/sheet</div><div class="price-badge">Bulk Savings</div></div></div></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-title">Quality You Can Count On</h2>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">&#x1F3ED;</div><h3>Direct from Factory</h3><p>No middlemen. Manufactured at our own Ludhiana facility for better quality and lower prices.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x1F4B0;</div><h3>Wholesale Rates</h3><p>Buy in bulk and unlock significant discounts. The more you order, the better the price.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x1F69A;</div><h3>Pan-Punjab Delivery</h3><p>We deliver across Punjab and neighboring states. Fast dispatch from our godown.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x2705;</div><h3>Quality Paper</h3><p>ISI-grade ruled paper with clean, crisp print lines. No bleed, no smudge.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x1F3AF;</div><h3>Custom Orders</h3><p>Need custom cover prints? We accept custom bulk orders with your branding.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x1F91D;</div><h3>School Trusted</h3><p>Hundreds of schools, colleges &amp; retailers in Punjab trust Aman Copy Center every year.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="w-banner">
+      <div>
+        <h2>Order in <span>Bulk &amp; Save Big</span></h2>
+        <p>Whether you're a school, retailer, or office — our wholesale pricing gives you more value for every rupee. Discounts start from orders of just 100 pieces.</p>
+        <br/><button class="btn-primary" onclick="showPage('wholesale')" style="margin-top:.5rem">Get Wholesale Pricing &rarr;</button>
+      </div>
+      <div class="w-tiers">
+        <div class="tier"><span class="tier-label">100&ndash;499 pcs</span><span class="tier-disc">10% OFF</span></div>
+        <div class="tier"><span class="tier-label">500&ndash;1999 pcs</span><span class="tier-disc">20% OFF</span></div>
+        <div class="tier"><span class="tier-label">2000+ pcs</span><span class="tier-disc">30%+ OFF</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PRODUCTS -->
+<div id="page-products" class="page">
+  <section class="section">
+    <div class="section-tag">Our Catalogue</div>
+    <h2 class="section-title">All Products</h2>
+    <p class="section-sub">Browse our full range. All products available in retail and wholesale quantities.</p>
+    <div class="products-grid" style="margin-top:2.5rem">
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#dbeafe,#93c5fd)">&#x1F4D3;</div><div class="product-body"><div class="product-name">School Register (Long)</div><div class="product-desc">200 pages, single-line ruled, hard cover.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;45</strong></div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#ede9fe,#c4b5fd)">&#x1F4D4;</div><div class="product-body"><div class="product-name">School Register (Short)</div><div class="product-desc">100 pages, ruled, lightweight for primary school.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;25</strong></div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#fce7f3,#f9a8d4)">&#x1F3A8;</div><div class="product-body"><div class="product-name">Drawing Book (A4)</div><div class="product-desc">32 pages, 120 GSM white unlined paper.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;35</strong></div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#ffedd5,#fdba74)">&#x1F5BC;&#xFE0F;</div><div class="product-body"><div class="product-name">Scrap Book</div><div class="product-desc">Thick pastel pages for school projects &amp; art.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;40</strong></div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">&#x1F4D2;</div><div class="product-body"><div class="product-name">Personal Diary</div><div class="product-desc">Dated/undated, premium cover, 365 pages.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;80</strong></div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#fef3c7,#fcd34d)">&#x1F4CB;</div><div class="product-body"><div class="product-name">Assignment Sheets</div><div class="product-desc">A4, ruled &amp; graph. Packs of 50 or 100 sheets.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;2</strong>/sheet</div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#fee2e2,#fca5a5)">&#x1F4F0;</div><div class="product-body"><div class="product-name">Loose Sheets (Ream)</div><div class="product-desc">500-sheet reams of ruled / plain / graph paper.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;120</strong>/ream</div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+      <div class="product-card"><div class="product-thumb" style="background:linear-gradient(135deg,#cffafe,#67e8f9)">&#x1F5D2;&#xFE0F;</div><div class="product-body"><div class="product-name">Office Notebook (A5)</div><div class="product-desc">Spiral-bound, 80 pages, professional look.</div><div class="product-price"><div class="price-retail">Retail: <strong>&#x20B9;55</strong></div><div class="price-badge">Wholesale &#x2193;</div></div></div></div>
+    </div>
+    <div style="margin-top:3rem;padding:2rem;background:#fff;border-radius:16px;border:1px solid var(--border);text-align:center;">
+      <p style="color:var(--muted);margin-bottom:1.2rem;">&#x1F4A1; Need custom sizes, cover designs, or specific page counts? We accept custom bulk orders.</p>
+      <button class="btn-primary" onclick="showPage('contact')">Request Custom Order</button>
+    </div>
+  </section>
+</div>
+
+<!-- WHOLESALE -->
+<div id="page-wholesale" class="page">
+  <section class="section">
+    <div class="section-tag">For Dealers &amp; Institutions</div>
+    <h2 class="section-title">Wholesale Pricing</h2>
+    <p class="section-sub">We supply to schools, colleges, retailers and corporates across Punjab at factory-direct wholesale rates.</p>
+    <div style="margin-top:3rem;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,.07);border:1px solid var(--border);">
+      <div style="background:var(--navy);padding:1.5rem 2rem;">
+        <h3 style="color:#fff;font-family:'Playfair Display',serif;font-size:1.3rem;">Discount Slabs</h3>
+        <p style="color:rgba(255,255,255,.5);font-size:.82rem;margin-top:.3rem;">Discounts apply based on total order quantity</p>
+      </div>
+      <table class="ws-table">
+        <thead><tr><th>Order Quantity</th><th>Discount</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;color:var(--navy)">100 &ndash; 499 pieces</td><td><span style="background:#fef3c7;color:#d97706;padding:.3rem .8rem;border-radius:20px;font-weight:700;font-size:.85rem;">10% OFF</span></td><td style="color:var(--muted);font-size:.85rem;">Small retailers, tuition centers</td></tr>
+          <tr style="background:rgba(232,162,21,.02)"><td style="font-weight:600;color:var(--navy)">500 &ndash; 1999 pieces</td><td><span style="background:#dcfce7;color:#16a34a;padding:.3rem .8rem;border-radius:20px;font-weight:700;font-size:.85rem;">20% OFF</span></td><td style="color:var(--muted);font-size:.85rem;">Schools, stationery shops</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">2000 &ndash; 4999 pieces</td><td><span style="background:#dbeafe;color:#1d4ed8;padding:.3rem .8rem;border-radius:20px;font-weight:700;font-size:.85rem;">25% OFF</span></td><td style="color:var(--muted);font-size:.85rem;">District distributors</td></tr>
+          <tr style="background:rgba(232,162,21,.02)"><td style="font-weight:600;color:var(--navy)">5000+ pieces</td><td><span style="background:var(--navy);color:var(--gold);padding:.3rem .8rem;border-radius:20px;font-weight:700;font-size:.85rem;">30%+ OFF</span></td><td style="color:var(--muted);font-size:.85rem;">State-level dealers, chains</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:1.2rem;">Send Wholesale Enquiry</h3>
+        <div class="form-stack">
+          <div class="form-group"><label>Business / School Name</label><input type="text" placeholder="e.g. ABC Stationery, Ludhiana"/></div>
+          <div class="form-row">
+            <div class="form-group"><label>Contact Person</label><input type="text" placeholder="Your name"/></div>
+            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+          </div>
+          <div class="form-group"><label>Products Required</label><select><option>Select product...</option><option>Registers</option><option>Drawing Books</option><option>Scrap Books</option><option>Diaries</option><option>Assignment Sheets</option><option>Mixed / Multiple</option></select></div>
+          <div class="form-group"><label>Approximate Quantity</label><input type="text" placeholder="e.g. 1000 pieces"/></div>
+          <div class="form-group"><label>Additional Requirements</label><textarea placeholder="Cover designs, page count, branding..."></textarea></div>
+          <button class="btn-primary" onclick="showToast('Wholesale enquiry submitted! Our team will call you within 24 hours.')">Submit Enquiry</button>
+        </div>
+      </div>
+      <div style="background:var(--navy);border-radius:20px;padding:2rem;color:#fff;">
+        <h4 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:1.5rem;color:var(--gold);">Why Buy Wholesale from Us?</h4>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;">
+          <div style="display:flex;gap:1rem;align-items:flex-start;"><span style="font-size:1.2rem">&#x1F3ED;</span><div><strong style="color:#fff;font-size:.88rem;">Manufacturer Direct</strong><p style="color:rgba(255,255,255,.5);font-size:.8rem;margin-top:.2rem;">No distributor markup — you pay factory price.</p></div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;"><span style="font-size:1.2rem">&#x1F4E6;</span><div><strong style="color:#fff;font-size:.88rem;">Massive Stock Available</strong><p style="color:rgba(255,255,255,.5);font-size:.8rem;margin-top:.2rem;">Our godown holds lakhs of notebooks ready to dispatch.</p></div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;"><span style="font-size:1.2rem">&#x1F91D;</span><div><strong style="color:#fff;font-size:.88rem;">Credit Terms Available</strong><p style="color:rgba(255,255,255,.5);font-size:.8rem;margin-top:.2rem;">Established dealers can apply for credit payment cycles.</p></div></div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;"><span style="font-size:1.2rem">&#x1F5A8;&#xFE0F;</span><div><strong style="color:#fff;font-size:.88rem;">Custom Branding</strong><p style="color:rgba(255,255,255,.5);font-size:.8rem;margin-top:.2rem;">Print your school or company name on notebook covers.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+
+  <!-- PART 1: Hero Banner -->
+  <section style="background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);padding:5rem 5rem 4rem;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px);pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:700px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,162,21,.15);border:1px solid rgba(232,162,21,.4);color:var(--gold);padding:.4rem 1.1rem;border-radius:20px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;">📍 Est. 2004 &middot; Ludhiana, Punjab</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff;line-height:1.2;margin-bottom:1.2rem;">Aman Copy Center &mdash;<br/><em style="color:var(--gold);font-style:normal;">Built on Paper &amp; Trust</em></h1>
+      <p style="color:rgba(255,255,255,.65);font-size:1rem;line-height:1.85;max-width:560px;margin:0 auto;">Two decades of manufacturing quality notebooks, registers, and stationery — directly from our factory in Ludhiana to schools, offices, and retailers across Punjab.</p>
+    </div>
+  </section>
+
+  <!-- PART 2: Stats Strip -->
+  <section style="background:var(--gold);padding:2.2rem 5rem;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;max-width:900px;margin:0 auto;">
+      <div><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--navy);line-height:1;">20+</div><div style="font-size:.78rem;font-weight:700;color:rgba(13,27,42,.65);margin-top:.3rem;text-transform:uppercase;letter-spacing:.07em;">Years Experience</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--navy);line-height:1;">50K+</div><div style="font-size:.78rem;font-weight:700;color:rgba(13,27,42,.65);margin-top:.3rem;text-transform:uppercase;letter-spacing:.07em;">Notebooks / Month</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--navy);line-height:1;">500+</div><div style="font-size:.78rem;font-weight:700;color:rgba(13,27,42,.65);margin-top:.3rem;text-transform:uppercase;letter-spacing:.07em;">Happy Clients</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--navy);line-height:1;">6+</div><div style="font-size:.78rem;font-weight:700;color:rgba(13,27,42,.65);margin-top:.3rem;text-transform:uppercase;letter-spacing:.07em;">Product Lines</div></div>
+    </div>
+  </section>
+
+  <!-- PART 3: Our Story -->
+  <section class="section" style="background:var(--cream);">
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="shelf-col"><div class="shelf-nb" style="background:#3498db;height:50px"></div><div class="shelf-nb" style="background:#e74c3c;height:44px"></div><div class="shelf-nb" style="background:#27ae60;height:52px"></div><div class="shelf-nb" style="background:#f39c12;height:46px"></div><div class="shelf-nb" style="background:#9b59b6;height:48px"></div><div class="shelf-nb" style="background:#1abc9c;height:42px"></div></div>
+        <div class="shelf-col"><div class="shelf-nb" style="background:#e74c3c;height:52px"></div><div class="shelf-nb" style="background:#f39c12;height:46px"></div><div class="shelf-nb" style="background:#3498db;height:50px"></div><div class="shelf-nb" style="background:#27ae60;height:48px"></div><div class="shelf-nb" style="background:#9b59b6;height:44px"></div><div class="shelf-nb" style="background:#e74c3c;height:52px"></div></div>
+        <div class="shelf-col"><div class="shelf-nb" style="background:#27ae60;height:48px"></div><div class="shelf-nb" style="background:#9b59b6;height:50px"></div><div class="shelf-nb" style="background:#e74c3c;height:46px"></div><div class="shelf-nb" style="background:#f39c12;height:52px"></div><div class="shelf-nb" style="background:#3498db;height:44px"></div><div class="shelf-nb" style="background:#1abc9c;height:48px"></div></div>
+        <div class="shelf-col"><div class="shelf-nb" style="background:#f39c12;height:44px"></div><div class="shelf-nb" style="background:#3498db;height:52px"></div><div class="shelf-nb" style="background:#9b59b6;height:50px"></div><div class="shelf-nb" style="background:#e74c3c;height:46px"></div><div class="shelf-nb" style="background:#27ae60;height:48px"></div><div class="shelf-nb" style="background:#f39c12;height:52px"></div></div>
+        <div class="shelf-col"><div class="shelf-nb" style="background:#1abc9c;height:50px"></div><div class="shelf-nb" style="background:#e74c3c;height:46px"></div><div class="shelf-nb" style="background:#3498db;height:52px"></div><div class="shelf-nb" style="background:#9b59b6;height:48px"></div><div class="shelf-nb" style="background:#f39c12;height:44px"></div><div class="shelf-nb" style="background:#27ae60;height:50px"></div></div>
+        <div class="shelf-col"><div class="shelf-nb" style="background:#e74c3c;height:48px"></div><div class="shelf-nb" style="background:#27ae60;height:52px"></div><div class="shelf-nb" style="background:#f39c12;height:46px"></div><div class="shelf-nb" style="background:#3498db;height:50px"></div><div class="shelf-nb" style="background:#9b59b6;height:44px"></div><div class="shelf-nb" style="background:#1abc9c;height:52px"></div></div>
+        <div class="shelf-col"><div class="shelf-nb" style="background:#9b59b6;height:50px"></div><div class="shelf-nb" style="background:#3498db;height:44px"></div><div class="shelf-nb" style="background:#1abc9c;height:52px"></div><div class="shelf-nb" style="background:#e74c3c;height:48px"></div><div class="shelf-nb" style="background:#f39c12;height:46px"></div><div class="shelf-nb" style="background:#27ae60;height:50px"></div></div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">Our Story</div>
+        <h2>From a Small Shop to<br/>Punjab's Trusted Manufacturer</h2>
+        <p>Located in Ludhiana, Punjab, Aman Copy Center has been manufacturing and distributing high-quality notebooks, registers, and stationery for over two decades. What started as a small copy shop has grown into a large-scale manufacturing and wholesale operation.</p>
+        <p>Our godown stocks lakhs of notebooks at any time &mdash; from simple school registers to premium diaries &mdash; and we supply directly to schools, colleges, retailers and corporate offices across Punjab.</p>
+        <p>The <strong>Aman's Plus</strong> brand is a mark of quality and consistency. Every product is checked for paper quality, binding strength, and print clarity before it reaches our customers.</p>
+        <button class="btn-primary" onclick="showPage('contact')" style="margin-top:1rem;">Get in Touch &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div style="display:flex;align-items:center;gap:1.5rem;padding:0 5rem;background:#fff;">
+    <div style="flex:1;height:1px;background:var(--border);"></div>
+    <div style="width:10px;height:10px;background:var(--gold);border-radius:50%;flex-shrink:0;"></div>
+    <div style="width:6px;height:6px;background:var(--gold);opacity:.5;border-radius:50%;flex-shrink:0;"></div>
+    <div style="flex:1;height:1px;background:var(--border);"></div>
+  </div>
+
+  <!-- PART 4: Our Values -->
+  <section class="section section-alt">
+    <div class="section-tag">Our Values</div>
+    <h2 class="section-title">What Drives Us</h2>
+    <p class="section-sub">The principles that have kept us going strong for over 20 years.</p>
+    <div class="features-grid" style="margin-top:2.5rem">
+      <div class="feature-card"><div class="feature-icon">&#x1F4D6;</div><h3>Education First</h3><p>We believe every student deserves quality stationery. Our prices are kept affordable so education is never hindered.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x1F331;</div><h3>Sustainable Sourcing</h3><p>We use paper from certified mills that follow responsible forestry practices wherever possible.</p></div>
+      <div class="feature-card"><div class="feature-icon">&#x1F3C6;</div><h3>Quality Always</h3><p>From the GSM of the paper to the glue in the binding &mdash; quality is non-negotiable at every step.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <section class="section">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub">Visit our shop in Ludhiana or reach out via call/WhatsApp. We help with orders, pricing &amp; custom requirements.</p>
+    <div class="contact-grid">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.5rem;">Aman Copy Center</h3>
+        <div class="contact-item"><div class="contact-icon">&#x1F4CD;</div><div><p><strong>Shop Address</strong>Ludhiana, Punjab, India<br/>Near [Your Market / Street Name]</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#x1F4DE;</div><div><p><strong>Phone / WhatsApp</strong>+91 XXXXX XXXXX<br/>Mon&ndash;Sat: 9:00 AM &ndash; 7:00 PM</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#x1F4E7;</div><div><p><strong>Email</strong>amancopy@gmail.com</p></div></div>
+        <div class="contact-item"><div class="contact-icon">&#x1F4E6;</div><div><p><strong>Godown / Warehouse</strong>Ludhiana, Punjab<br/>Available for bulk pickup</p></div></div>
+        <div style="background:linear-gradient(135deg,var(--navy),#1a3a5c);border-radius:16px;padding:2rem;margin-top:1.5rem;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:.5rem;">&#x1F4AC;</div>
+          <h4 style="color:#fff;font-family:'Playfair Display',serif;margin-bottom:.5rem;">WhatsApp Order</h4>
+          <p style="color:rgba(255,255,255,.55);font-size:.83rem;margin-bottom:1.2rem;">Message us directly on WhatsApp for quick orders and quotes.</p>
+          <button class="btn-primary" onclick="showToast('Opening WhatsApp... (add your number to make this live!)')">Chat on WhatsApp</button>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.5rem;">Send a Message</h3>
+        <div class="form-stack">
+          <div class="form-row">
+            <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+          </div>
+          <div class="form-group"><label>Email (optional)</label><input type="email" placeholder="you@example.com"/></div>
+          <div class="form-group"><label>Subject</label><select><option>General Enquiry</option><option>Wholesale / Bulk Order</option><option>Custom Order</option><option>Delivery / Shipping</option><option>Feedback</option></select></div>
+          <div class="form-group"><label>Message</label><textarea placeholder="How can we help you?"></textarea></div>
+          <button class="btn-primary" onclick="showToast('Message sent! We will get back to you within 24 hours.')">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- LOGIN -->
+<div id="page-login" class="page">
+  <div class="login-page">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-icon">A</div>
+        <h2>Aman Copy Center</h2>
+        <p>Sign in to your account or create one</p>
+      </div>
+      <div class="login-tabs">
+        <button class="ltab active" id="tab-login" onclick="switchTab('login')">Login</button>
+        <button class="ltab" id="tab-reg" onclick="switchTab('reg')">Register</button>
+      </div>
+      <div id="form-login" class="form-stack">
+        <div class="form-group"><label>Phone Number / Email</label><input type="text" placeholder="+91 XXXXX XXXXX or email"/></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Enter your password"/></div>
+        <div style="display:flex;justify-content:flex-end;margin-top:-.3rem;"><a href="#" style="font-size:.8rem;color:var(--gold);text-decoration:none;">Forgot password?</a></div>
+        <button class="btn-primary" style="width:100%;margin-top:.3rem" onclick="showToast('Welcome back! Login successful.')">Login</button>
+        <div class="divider">or</div>
+        <button onclick="showToast('OTP sent to your phone!')" style="width:100%;padding:.8rem;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--navy);background:#fff;cursor:pointer;">&#x1F4F1; Login with OTP</button>
+      </div>
+      <div id="form-reg" class="form-stack" style="display:none">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="First"/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last"/></div>
+        </div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+        <div class="form-group"><label>Email (optional)</label><input type="email" placeholder="you@example.com"/></div>
+        <div class="form-group"><label>Account Type</label><select><option>Retail Customer</option><option>School / Institution</option><option>Wholesale Dealer</option><option>Retailer / Shop</option></select></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Create a password"/></div>
+        <button class="btn-primary" style="width:100%;margin-top:.3rem" onclick="doRegister()">Create Account</button>
+      </div>
+      <div class="login-footer">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><div class="logo-icon">A</div><span class="logo-text">Aman <span>Copy Center</span></span></div>
+      <p>Punjab's trusted notebook manufacturer and wholesale supplier. Quality stationery directly from our factory in Ludhiana.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a onclick="showPage('products')">Registers</a>
+      <a onclick="showPage('products')">Drawing Books</a>
+      <a onclick="showPage('products')">Scrap Books</a>
+      <a onclick="showPage('products')">Diaries</a>
+      <a onclick="showPage('products')">Assignment Sheets</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a onclick="showPage('about')">About Us</a>
+      <a onclick="showPage('wholesale')">Wholesale</a>
+      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('login')">Login</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a>&#x1F4CD; Ludhiana, Punjab</a>
+      <a>&#x1F4DE; +91 XXXXX XXXXX</a>
+      <a>&#x1F4E7; amancopy@gmail.com</a>
+      <a>&#x1F4AC; WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Aman Copy Center, Ludhiana. All rights reserved.</span>
+    <span>Made with &#x2764;&#xFE0F; in Punjab</span>
+  </div>
+</footer>
+
+<div class="toast" id="toastEl"></div>
+
+<script>
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  var nl=document.getElementById('nav-'+name);
+  if(nl)nl.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function switchTab(t){
+  document.getElementById('tab-login').classList.toggle('active',t==='login');
+  document.getElementById('tab-reg').classList.toggle('active',t==='reg');
+  document.getElementById('form-login').style.display=t==='login'?'flex':'none';
+  document.getElementById('form-reg').style.display=t==='reg'?'flex':'none';
+}
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  m.style.display=m.style.display==='none'?'block':'none';
+}
+function showToast(msg){
+  var el=document.getElementById('toastEl');
+  el.textContent=msg;
+  el.classList.add('show');
+  setTimeout(function(){el.classList.remove('show')},3500);
+}
+function doRegister(){
+  showToast('✅ Account created! Welcome to Aman Copy Center.');
+  setTimeout(function(){
+    showPage('home');
+    switchTab('login');
+  },1500);
+}
+</script>
+</body>
+</html>
